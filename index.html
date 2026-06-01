@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -220,6 +220,13 @@
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
+  .lang-switch { display: flex; gap: 4px; align-items: center; margin-left: 28px; }
+  .lang-switch a { font-size: .68rem; letter-spacing: .15em; color: var(--text-muted); text-decoration: none; transition: color .3s; padding: 2px 4px; }
+  .lang-switch a.active { color: var(--gold); }
+  .lang-switch a:hover { color: var(--gold); }
+  .lang-sep { color: var(--text-muted); font-size: .6rem; }
+  @media (max-width: 900px) { .lang-switch { margin-left: 0; } }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 24px 32px; }
@@ -263,6 +270,11 @@
     <li><a href="#conducting">Conducting</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <div class="lang-switch">
+    <a href="/" class="active">EN</a>
+    <span class="lang-sep">/</span>
+    <a href="/es/">ES</a>
+  </div>
 </nav>
 
 <!-- ═══ HERO ═══ -->
