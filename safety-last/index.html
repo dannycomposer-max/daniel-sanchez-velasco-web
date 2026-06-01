@@ -92,6 +92,12 @@
   .footer-name { font-family: 'Cormorant Garamond', serif; font-size: .95rem; color: var(--text-muted); letter-spacing: .1em; }
   .footer-copy { font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); }
 
+  .lang-switch { display: flex; gap: 4px; align-items: center; margin-left: 20px; }
+  .lang-switch a { font-size: .68rem; letter-spacing: .15em; color: var(--text-muted); text-decoration: none; transition: color .3s; padding: 2px 4px; }
+  .lang-switch a.active { color: var(--gold); }
+  .lang-switch a:hover { color: var(--gold); }
+  .lang-sep { color: var(--text-muted); font-size: .6rem; }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 20px 32px; }
@@ -118,6 +124,11 @@
     <li><a href="/#conducting">Conducting</a></li>
     <li><a href="/#contact">Contact</a></li>
   </ul>
+  <div class="lang-switch">
+    <a href="/safety-last/" class="active">EN</a>
+    <span class="lang-sep">/</span>
+    <a href="/es/safety-last/">ES</a>
+  </div>
 </nav>
 
 <!-- HERO STRIP -->
