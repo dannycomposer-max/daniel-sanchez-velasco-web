@@ -846,6 +846,16 @@
       }
     });
   }
+
+  // Hash anchor fix — scroll after animations initialize
+  if(window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if(target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 600);
+    }
+  }
 </script>
 </body>
 </html>
