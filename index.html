@@ -847,18 +847,16 @@
     });
   }
 
-  // URL param scroll — para URLs limpias como /?scroll=safety-last
+  // URL param scroll — cross-browser, no load event dependency
   const urlParams = new URLSearchParams(window.location.search);
   const scrollTarget = urlParams.get('scroll');
   if(scrollTarget) {
     history.replaceState(null, '', '/');
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const target = document.getElementById(scrollTarget);
-        if(target) target.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
-    });
+    setTimeout(() => {
+      const target = document.getElementById(scrollTarget);
+      if(target) target.scrollIntoView({ behavior: 'auto' });
+    }, 800);
   }
 </script>
 </body>
