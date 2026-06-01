@@ -847,14 +847,20 @@
     });
   }
 
-  // Hash anchor fix — scroll after animations initialize
+  // Hash anchor fix — wait for full page load before scrolling
   if(window.location.hash) {
-    const target = document.querySelector(window.location.hash);
-    if(target) {
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }, 600);
-    }
+    window.addEventListener('load', () => {
+      const target = document.querySelector(window.location.hash);
+      if(target) {
+        setTimeout(() => {
+          document.documentElement.style.scrollBehavior = 'auto';
+          target.scrollIntoView();
+          setTimeout(() => {
+            document.documentElement.style.scrollBehavior = '';
+          }, 100);
+        }, 200);
+      }
+    });
   }
 </script>
 </body>
