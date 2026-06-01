@@ -846,6 +846,19 @@
       }
     });
   }
+
+  // SessionStorage scroll — para URLs limpias como /safety-last
+  const scrollTarget = sessionStorage.getItem('scrollTarget');
+  if(scrollTarget) {
+    sessionStorage.removeItem('scrollTarget');
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const target = document.getElementById(scrollTarget);
+        if(target) target.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    });
+  }
 </script>
 </body>
 </html>
