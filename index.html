@@ -847,10 +847,11 @@
     });
   }
 
-  // SessionStorage scroll — para URLs limpias como /safety-last
-  const scrollTarget = sessionStorage.getItem('scrollTarget');
+  // URL param scroll — para URLs limpias como /?scroll=safety-last
+  const urlParams = new URLSearchParams(window.location.search);
+  const scrollTarget = urlParams.get('scroll');
   if(scrollTarget) {
-    sessionStorage.removeItem('scrollTarget');
+    history.replaceState(null, '', '/');
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
     window.addEventListener('load', () => {
       setTimeout(() => {
