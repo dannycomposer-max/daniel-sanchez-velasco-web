@@ -139,7 +139,7 @@
   .video-thumb:hover .video-thumb-overlay { background: linear-gradient(to top, rgba(201,168,76,.15) 0%, transparent 60%); }
 
   /* SAFETY LAST — special section */
-  #safety-last { background: #060408; position: relative; overflow: hidden; scroll-margin-top: 80px; }
+  #safety-last { background: #060408; position: relative; overflow: hidden; }
   #safety-last::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(120,80,20,.12) 0%, transparent 70%); pointer-events: none; }
   .safety-last-inner { max-width: 1200px; margin: 0 auto; padding: 120px 60px; }
   .safety-badge { display: inline-flex; align-items: center; gap: 12px; background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.25); padding: 8px 20px; margin-bottom: 40px; }
@@ -843,20 +843,6 @@
         success.style.display = 'none';
         btn.textContent = 'Send Message';
         btn.disabled = false;
-      }
-    });
-  }
-
-  // Hash anchor fix — reveal all + force scroll after full load
-  if(window.location.hash) {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-    window.addEventListener('load', () => {
-      const target = document.querySelector(window.location.hash);
-      if(target) {
-        setTimeout(() => {
-          const top = target.getBoundingClientRect().top + window.pageYOffset - 90;
-          window.scrollTo({ top: top, behavior: 'auto' });
-        }, 150);
       }
     });
   }
